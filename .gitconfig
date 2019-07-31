@@ -1,0 +1,80 @@
+[gitreview]
+  username = paris.douady
+[user]
+  email = paris.douady@adevinta.com
+  name = Paris Douady
+[url "git@github.schibsted.io:"]
+  insteadOf = https://github.schibsted.io/
+[color]
+  ui = auto
+[alias]
+  pu = rebase
+  br = branch -vvvv
+  ds = diff --staged
+  co = checkout
+  ci = commit
+  cia = commit -a
+  st = status
+  lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
+  lp = log -p
+  cp = cherry-pick
+  shows = show --name-status
+  ooops = commit --amend --no-edit -n
+  oops = commit --amend
+  review = "!f() {git-review -y; }; f"
+  pushf = push --force-with-lease
+  addu = add -u
+  rev = !git-review $(git rev-parse --abbrev-ref HEAD) -y
+  delone = !git push origin +HEAD^:$(git rev-parse --abbrev-ref HEAD)
+  pm1 = !git push origin +HEAD~1:$(git rev-parse --abbrev-ref HEAD)
+  pm2 = !git push origin +HEAD~2:$(git rev-parse --abbrev-ref HEAD)
+  pm3 = !git push origin +HEAD~3:$(git rev-parse --abbrev-ref HEAD)
+  diff1 = diff HEAD^
+  irb = "!f() { git rebase -i HEAD~$1; }; f"
+  continue = rebase --continue
+  pop = stash pop
+[core]
+  pager = less -FX
+  editor = vim
+  whitespace = -trailing-space
+	excludesfile = ~/.localgitignore
+[diff]
+  mnemonicPrefix = true
+  renames = true
+  wordRegex = .
+  tool = meld
+[fetch]
+  prune = true
+  #recurseSubmodules = on-demand
+[grep]
+  extendedRegexp = true
+[log]
+  abbrevCommit = true
+[merge]
+  conflictStyle = diff3
+  tool = meld
+[mergetool "meld"]
+  cmd = /usr/bin/python /usr/bin/meld \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[difftool "meld"]
+  cmd = /usr/bin/python /usr/bin/meld \"$LOCAL\" \"$REMOTE\"
+[mergetool]
+  keepBackup = false
+  keepTemporaries = false
+  prompt = false
+[pull]
+  rebase = preserve
+# [rebase]
+#  autoStash = true
+[push]
+  default = upstream
+[status]
+  #submoduleSummary = true
+  showUntrackedFiles = all
+[color "branch"]
+  upstream = cyan
+[tag]
+  sort = version:refname
+[gitreview]
+  remote = origin
+  track = true
+#  rebase = true
