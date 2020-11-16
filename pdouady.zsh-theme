@@ -49,7 +49,7 @@ DETACHED="\u27a6"
 CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
-DEFAULT_USER='pdouady'
+DEFAULT_USER='uriopass'
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -88,7 +88,7 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment $PRIMARY_FG black " %(!.%{%F{yellow}%}.)$user@%m "
+    prompt_segment $PRIMARY_FG white "$user@%m "
   fi
 }
 
